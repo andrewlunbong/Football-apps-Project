@@ -80,6 +80,10 @@ match_result_repository.save(match_result5)
 match_result6 = MatchResult(3, 0, match6, team2)
 match_result_repository.save(match_result6)
 
+# staged_games = match_repository.select_pending_for_team(team4)
+# for game in staged_games:
+#     print(game.id)
+
 #  team_test = team_repository.select(1)
 # team_test2 = Team("Arsenal worst team ever", 1)
 # team_repository.update(team_test2)

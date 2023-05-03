@@ -8,8 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-  
-  {% for match in matches %}
+  <h2>Fixture Matches</h2>
+  {% for match in fixture_matches %}
     
     <p>
     <b>{{match.home_team.name }}</b> VS <b>{{match.away_team.name }}</b>
@@ -17,5 +17,16 @@
     
     </p>
     {% endfor %}
+
+    <h2>Played Matches</h2>
+    {% for match_played in match_played %}
+    
+    <p>
+    <b> {{ match_played.match.home_team.name }}</b> <b> {{ match_played.home_team_score }}</b> : <b> {{ match_played.away_team_score }}</b> <b> {{ match_played.match.away_team.name }} </b>
+    
+    
+    </p>
+    {% endfor %}
+
     <a href="/">go back to home </a>
 </body>

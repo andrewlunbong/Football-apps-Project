@@ -1,0 +1,47 @@
+nav ul {
+    list-style: none;
+}
+
+
+
+.home-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+  }
+  
+  nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  nav {
+    border-bottom: 1px solid #ccc;
+  }
+
+  nav {
+    background-color: darkblue;
+  }
+
+  nav a {
+    color: #fff;
+  }
+
+
+
+  
+  
+  
+  

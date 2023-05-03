@@ -3,6 +3,8 @@ from flask import Blueprint
 from models.team import Team
 import repositories.team_repository as team_repository
 import repositories.match_repository as match_repository
+import repositories.match_result_repository as match_result_repository
+
 
 teams_blueprint = Blueprint("teams", __name__)
 
@@ -14,8 +16,10 @@ def teams():
 @teams_blueprint.route("/teams/<id>")
 def show(id):
     team = team_repository.select(id)
-    matches = match_repository.select_all()
-    return render_template("teams/show.jinja", team=team, matches=matches)
+    fixture_matches = match_repository.select_pending_for_team(team)
+    # match = match_result_repository.select(id)
+    # match_result = match_result_repository.select_pending()
+    return render_template("teams/show.jinja", team=team, fixture_matches=fixture_matches)
 
 @teams_blueprint.route('/teams', methods=['POST']) 
 def add_teams():

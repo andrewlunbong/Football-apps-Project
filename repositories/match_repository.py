@@ -4,12 +4,13 @@ from models.team import Team
 import repositories.team_repository as team_repository
 import repositories.match_result_repository as match_result_repository
 
-def save(match: Match):
-    sql = "INSERT INTO matches(home_team_id, away_team_id) VALUES ( %s, %s ) RETURNING id"
+def save(match):
+    sql = "INSERT INTO matches (home_team_id, away_team_id) VALUES ( %s, %s ) RETURNING id"
     values = [match.home_team.id, match.away_team.id]
     results = run_sql( sql, values )
     print(results)
     match.id = results[0]['id']
+    # match.id = id
     return match
 
 
@@ -74,6 +75,21 @@ def select_pending():
         if not match_has_been_played:
             matches_not_played.append(match)
     return matches_not_played
+
+def select_pending_for_team(team):
+    # sql = "SELECT * FROM matches WHERE home_team_id = %s OR away_team_id = %s"
+    # values = [team.id, team.id]
+    # result = run_sql(sql, values)
+    matches_not_played = select_pending()
+    matches_not_played_for_team = []
+
+    for match_not_played in matches_not_played:
+        if match_not_played.home_team.id == team.id:
+            matches_not_played_for_team.append(match_not_played)
+        elif match_not_played.away_team.id == team.id:
+            matches_not_played_for_team.append(match_not_played)
+    
+    return matches_not_played_for_team
 
 
 def select_by_team():

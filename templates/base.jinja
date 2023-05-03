@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> </title>
+    <title>Home of Football</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <!-- Link your CSS file -->
+    <link rel="stylesheet" href="static/style.css">
 </head>
-<title> Home of Football</title>
 <body>
-    <li>
-    <a href="/">Home</a>
-    </li>    
-    <li>
-    <a href="/matches">Fixtures</a>
-    </li>   
-    <li>
-    <a href="/match-results">Results</a>
-    </li>   
-    <li>
-    <a href="/teams">Teams</a>
-    </li> 
-    {% block content %}
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/matches">Fixtures</a></li>
+            <li><a href="/match-results">Results</a></li>
+            <li><a href="/teams">Teams</a></li>
+        </ul>
+    </nav>
 
-    {% endblock%}  
+    <div class="content">
+   
+    {% block content %}
+    
+    {% endblock %}    
+    
+        
+    </div>
+    
 </body>
 </html>
+
+
+
+
+
+
