@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>{{ title }} Results </title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <nav>
+    <ul>
+      
+    </ul>
+  </nav>
+  <h1> Results</h1>
+
+  {% for match_result in match_results %}
+    <p>
+    <b> {{ match_result.match.home_team.name }}</b> <b> {{ match_result.home_team_score }}</b> : <b> {{ match_result.away_team_score }}</b> <b> {{ match_result.match.away_team.name }} </b>
+  {% endfor %}
+    
+  <a href="/">go back to home </a>
+</body>
+</html> 

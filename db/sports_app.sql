@@ -1,5 +1,6 @@
-DROP TABLE IF EXISTS teams;
+DROP TABLE IF EXISTS match_results;
 DROP TABLE IF EXISTS matches;
+DROP TABLE IF EXISTS teams;
 
 
 CREATE TABLE teams(
@@ -9,7 +10,14 @@ CREATE TABLE teams(
 
 CREATE TABLE matches(
     id SERIAL PRIMARY KEY,
-    Home_team VARCHAR(255),
-    Away_team VARCHAR(255),
-    Winning_team VARCHAR(255)
+    home_team_id INT REFERENCES teams(id) ON DELETE CASCADE,
+    away_team_id INT REFERENCES teams(id) ON DELETE CASCADE
+);
+
+CREATE TABLE match_results(
+    id SERIAL PRIMARY KEY,
+    home_team_score INT,
+    away_team_score INT,
+    match_id INT NOT NULL REFERENCES matches(id) ON DELETE CASCADE,
+    winning_team_id INT NOT NULL REFERENCES teams(id) ON DELETE CASCADE
 );

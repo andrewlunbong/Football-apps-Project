@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>{{ title }} Results </title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <nav>
+    <ul>
+      
+    </ul>
+  </nav>
+  <h1> Fixtures</h1>
+    <form action="/matches" method="post">
+    <label for="add_match" >Team Name </label>
+    <input type="text" name="add_match" id="add_match"> VS
+    <input type="text" name="add_match" id="add_match">
+    <input type="submit" value="Add Match">
+    </form>
+
+  {% for match in matches %}
+    <p>
+    <b> {{ match.home_team.name }}</b> VS <b> {{ match.away_team.name }} </b> 
+    </p>
+    {% endfor %}
+    <a href="/">go back to home </a>
+</body>
+</html>

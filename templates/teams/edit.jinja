@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Edit Team</h1>
+  <form action="/teams/{{team.id}}/edit" method="post">
+    <label for="team_name_updated">Team Name:</label>
+    <input type="text" name="team_name_updated" value="{{team.name}}" placeholder="team name" id="team_name_updated">
+    {# <input type="submit" value="Edit Team"> #}
+    <button type="submit"> Edit Team </button>
+  </form>
+  <li>
+    <a href="/teams">Back to Teams</a>
+  </li>
+
+</body>
+
+</html>
