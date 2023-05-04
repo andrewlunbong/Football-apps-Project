@@ -7,6 +7,7 @@
     {# you well need two selects with teams in option tags, will need to do loops #}
     <label for="home_team">Home team</label>
     <select id="home_team" name="home_team_id">
+      <div class="container">
       {% for team in teams %}
         <option value="{{ team.id }}">{{ team.name }}</option>
       {% endfor %}
@@ -16,7 +17,9 @@
       {% for team in teams %}
         <option value="{{ team.id }}">{{ team.name }}</option>
       {% endfor %}
+    </div>   
     </select>
+
 
     <input type="submit" value="Add Match">
     </form>
@@ -27,6 +30,6 @@
     <b> {{ match.home_team.name }}</b> VS <b> {{ match.away_team.name }} </b> 
     </p>
     {% endfor %}
-    <a href="/">go back to home </a>
+    
 
   {% endblock %} 

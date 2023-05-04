@@ -4,6 +4,7 @@ from models.team import Team
 import repositories.team_repository as team_repository
 import repositories.match_result_repository as match_result_repository
 
+#save matches
 def save(match):
     sql = "INSERT INTO matches (home_team_id, away_team_id) VALUES ( %s, %s ) RETURNING id"
     values = [match.home_team.id, match.away_team.id]
@@ -13,7 +14,7 @@ def save(match):
     # match.id = id
     return match
 
-
+#select all matches in sql
 def select_all():
     matches = []
 
@@ -27,7 +28,7 @@ def select_all():
         matches.append(match)
     return matches
 
-
+#select individual match from sql
 def select(id):
     match = None
     sql = "SELECT * FROM matches WHERE id = %s"
@@ -56,12 +57,12 @@ def matches_by_team(team):
 
     return matches
 
-
+#delete all matches
 def delete_all():
     sql = "DELETE FROM matches"
     run_sql(sql)
 
-
+# selct matches that not been played e.g match that have no result
 def select_pending():
     all_matches = select_all()
     all_match_results = match_result_repository.select_all()
@@ -75,11 +76,8 @@ def select_pending():
         if not match_has_been_played:
             matches_not_played.append(match)
     return matches_not_played
-
+#select team that have not played yet(fixture)
 def select_pending_for_team(team):
-    # sql = "SELECT * FROM matches WHERE home_team_id = %s OR away_team_id = %s"
-    # values = [team.id, team.id]
-    # result = run_sql(sql, values)
     matches_not_played = select_pending()
     matches_not_played_for_team = []
 

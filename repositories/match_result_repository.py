@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.match_result import MatchResult
+from models.match import Match
 import repositories.team_repository as team_repository
 import repositories.match_repository as match_repository
 
@@ -38,16 +39,24 @@ def delete(id):
 
 
 def select_match_that_has_result_by_team(team):
+    matches = []
     sql = '''SELECT matches.home_team_id, matches.away_team_id, match_results.match_id, match_results.winning_team_id, match_results.home_team_score, match_results.away_team_score, match_results.id FROM matches
         INNER JOIN match_results
         ON match_results.match_id = matches.id
         WHERE home_team_id = %s or away_team_id = %s'''
     values = [team.id, team.id]
     results = run_sql(sql, values)
+    
 
     for result in results:
-        match_result = MatchResult()
+        # home_team = team_repository.select['home_team_id']
+        # away_team = team_repository.select['away_team_id']
+        winning_team = team_repository.select['winning_team_id']
+        match = match_repository.select['match_id']
 
+        match_result = MatchResult(result['home_team_score'], result['away_team_score'], match, winning_team, result['id'])
+        matches.append(match_result)
+    return matches
     # all_match_results = select_all()
     
 
@@ -62,18 +71,15 @@ def select_match_that_has_result_by_team(team):
     # return matches_not_played
 
 
-def select_match_played():
-    # sql = "SELECT * FROM matches WHERE home_team_id = %s OR away_team_id = %s"
-    # values = [team.id, team.id]
-    # result = run_sql(sql, values)
-    matches_played = select_pending()
-    matches_played_for_team = []
+# def select_match_played():
+#     matches_played = select_pending()
+#     matches_played_for_team = []
 
-    for match_played in matches_played:
-        if match_played.home_team.id == match.id:
-            matches_played_for_team.append(match_played)
-        elif match_played.away_team.id == match.id:
-            matches_played_for_team.append(match_played)
+#     for match_played in matches_played:
+#         if match_played.home_team.id == match.id:
+#             matches_played_for_team.append(match_played)
+#         elif match_played.away_team.id == match.id:
+#             matches_played_for_team.append(match_played)
     
-    return matches_played_for_team
+#     return matches_played_for_team
 

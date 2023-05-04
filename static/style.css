@@ -3,7 +3,7 @@ nav ul {
 }
 
 
-
+/* image */
 .home-image {
     display: block;
     margin: 0 auto;
@@ -38,6 +38,17 @@ nav ul {
   nav a {
     color: #fff;
   }
+
+  
+  body {
+    background-color: #f2f2f2;
+  }
+
+ 
+
+
+
+
 
 
 
