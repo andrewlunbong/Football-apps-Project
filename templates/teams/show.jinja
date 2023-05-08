@@ -18,15 +18,15 @@
     </p>
     {% endfor %}
 
-    {# <h2>Played Matches</h2>
-    {% for match in match_played %}
+    <h2>Played Matches</h2>
+    {% for match_result in match_results %}
     
     <p>
-    <b> {{ match.home_team.name }}</b> <b> {{ match.home_team_score }}</b> : <b> {{ match.away_team_score }}</b> <b> {{ match.away_team.name }} </b>
+    <b> {{ match_result.match.home_team.name }}</b> <b> {{ match_result.home_team_score }}</b> : <b> {{ match_result.away_team_score }}</b> <b> {{ match_result.match.away_team.name}} </b>
     
     
     </p>
-    {% endfor %} #}
+    {% endfor %}
 
     <a href="/">go back to home </a>
 </body>

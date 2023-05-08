@@ -49,13 +49,10 @@ def select_match_that_has_result_by_team(team):
     
 
     for result in results:
-        # home_team = team_repository.select['home_team_id']
-        # away_team = team_repository.select['away_team_id']
-        winning_team = team_repository.select['winning_team_id']
-        match = match_repository.select['match_id']
-
-        match_result = MatchResult(result['home_team_score'], result['away_team_score'], match, winning_team, result['id'])
-        matches.append(match_result)
+        winning_team = team_repository.select(result['winning_team_id'])
+        match = match_repository.select(result['match_id'])
+        match_played = MatchResult(result['home_team_score'], result['away_team_score'], match, winning_team, result['id'])
+        matches.append(match_played)
     return matches
     # all_match_results = select_all()
     

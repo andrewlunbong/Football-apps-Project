@@ -13,12 +13,13 @@ def teams():
     teams = team_repository.select_all() 
     return render_template("teams/index.jinja", teams = teams)
 
-#show individual team and their fixture
+#show individual team and their fixture and result
 @teams_blueprint.route("/teams/<id>")
 def show(id):
     team = team_repository.select(id)
     fixture_matches = match_repository.select_pending_for_team(team)
-    return render_template("teams/show.jinja", team=team, fixture_matches=fixture_matches)
+    match_results = match_result_repository.select_match_that_has_result_by_team(team)
+    return render_template("teams/show.jinja", team=team, fixture_matches=fixture_matches, match_results= match_results)
 
 
 #adding new team
