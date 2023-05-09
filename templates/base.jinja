@@ -6,17 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link your CSS file -->
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
+<header>
     <nav>
-        <ul>
+        <ul class = "home_bar">
             <li><a href="/">Home</a></li>
             <li><a href="/matches">Fixtures</a></li>
             <li><a href="/match-results">Results</a></li>
             <li><a href="/teams">Teams</a></li>
         </ul>
     </nav>
+</header>
+    
 
     <div class="content">
    

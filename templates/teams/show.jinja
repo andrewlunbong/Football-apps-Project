@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<title>{{ title }} Team Result </title>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends 'base.jinja'%}
+
+
+{% block content %}
 <body>
   <h2>Fixture Matches</h2>
   {% for match in fixture_matches %}
@@ -30,3 +25,4 @@
 
     <a href="/">go back to home </a>
 </body>
+{% endblock %}

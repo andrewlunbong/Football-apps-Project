@@ -1,9 +1,8 @@
-{% extends "base.jinja"%}
-  
+{% extends 'base.jinja'%}
+
+
 {% block content %}
-    
-
-
+  
   <h1>Edit Team</h1>
   <form action="/teams/{{team.id}}/edit" method="post">
     <label for="team_name_updated">Team Name:</label>
@@ -14,5 +13,6 @@
   <li>
     <a href="/teams">Back to Teams</a>
   </li>
+{% endblock %}
 
-{% endblock %} 
+
