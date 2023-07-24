@@ -47,13 +47,13 @@ The project contains the following folders and files:
 - .flaskenv (contains base settings for running Flask)
 - app.py (contains the base settings for returning a web page)
 - console.py (used for manual database manipulation)
-- run_tests.py (used to run unittests)
-- utest (contains testing grounds for Python classes)
+- run_tests.py (used to run unit tests)
+- test (contains testing grounds for Python classes)
 - models (contains the Python classes: gym_class.py, gym_member.py, gym_room.py)
-- db (contains database related files: gym_manager.sql, run_sql.py)
+- DB (contains database-related files: gym_manager.sql, run_sql.py)
 - controllers (contains files that handle receiving HTTP requests and responding with HTML templates)
 - repositories (contains files that contain SQL functions related to respective tables)
-- templates (used to store HTML (Jinja) templates which structure the view)
+- templates (used to store HTML (Jinja) templates that structure the view)
 - static (used for holding CSS files, which will influence the view look)
 
 ## References
@@ -62,6 +62,6 @@ The project contains the following folders and files:
 - psycopg2 installation: https://pypi.org/project/psycopg2/
 - Python installation: https://docs.python-guide.org/starting/install3/osx/
 - Flask installation: https://phoenixnap.com/kb/install-flask
-- Week_2_day_3 unittest setup: [Link]
-- Week_4_day_5 file/table setup: [Link]
-- SQL date/time syntax: [Link]
+- Week_2_day_3 unittest setup: https://github.com/codeclan/e64_classnotes/blob/main/week_02/day_3/testing/coffee_shop_testing/testing.md
+- Week_4_day_5 file/table setup: https://github.com/codeclan/e64_classnotes/tree/main/week_04/day_4/01_many_to_many_quest_advisor/quest_advisor_end
+
